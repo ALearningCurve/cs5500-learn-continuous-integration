@@ -16,7 +16,7 @@ jobs:
         run: npm install
 
       - name: Run Tests
-        run: npm run remove-sample-data
+        run: npm run remove-sample-data -- mongodb://127.0.0.1:27017/fake_so
 
       - name: Run Tests
-        run: npm run insert-sample-data
+        run: npm run insert-sample-data -- mongodb://127.0.0.1:27017/fake_so
