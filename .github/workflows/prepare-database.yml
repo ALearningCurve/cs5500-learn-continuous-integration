@@ -1,0 +1,22 @@
+name: Prepare Database
+
+on:
+  push:
+    branches:
+      - deploy
+
+jobs:
+  "run-prepare-database":
+    runs-on: self-hosted 
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm run remove-sample-data
+
+      - name: Run Tests
+        run: npm run insert-sample-data
